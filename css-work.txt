@@ -1,0 +1,141 @@
+grep 'font-' style.css 
+
+
+dfn { font-style: italic; }
+
+h1 { font-size: 2em; margin: 0.67em 0; }
+
+
+code, kbd, pre, samp { font-family: monospace, monospace; font-size: 1em; }
+
+    --primary-font: "roboto-mono", "Roboto Mono", sans-serif;
+    --secondary-font: "ff-basic-gothic-pro", "Roboto", sans-serif;
+    --mono-font: monospace;
+
+    --thin-font: 200
+    --light-font: 300
+    --regular-font: 400
+    --semi-bold-font: 500
+    --bold-font: 600
+    --extra-bold-font: 700
+
+font-weight: 400;// normal
+font-weight: 700;// bold
+
+100	Thin (Hairline)
+200	Extra Light (Ultra Light)
+300	Light
+400	Normal (Regular)
+500	Medium
+600	Semi Bold (Demi Bold)
+700	Bold
+800	Extra Bold (Ultra Bold)
+900	Black (Heavy)
+
+optgroup { font-weight: bold; }
+
+    font-family: var(--secondary-font);
+    font-family: var(--primary-font);
+
+    font-family: var(--mono-font);
+
+    font-weight: normal;
+    font-weight: bold;
+    font-weight: 200    var(--thin-font);
+    font-weight: 300;   var(--light-font);
+    font-weight: 400; // normal var(--regular-font);
+    font-weight: 500; var(--semi-bold-font);
+    font-weight: 600; var(--bold-font);
+    font-weight: 700; // bold  var(--extra-bold-font);
+
+xx-small, x-small, small, medium, large, x-large, xx-large, xxx-large
+
+--large-em-font: 1.25rem;
+--x-large-em-font: 1.8rem;
+--xx-large-em-font: 2.6rem;
+--3x-large-em-font: 3rem;
+--4x-large-em-font: 4.5rem;
+
+font-size: 0;
+font-size: 1.25rem; var(--large-em-font);
+font-size: 1.6rem;  var(--x-large-em-font);
+font-size: 1.8rem;  var(--x-large-em-font);
+font-size: 2.4rem;  var(--xx-large-em-font);
+font-size: 2.6rem;  var(--xx-large-em-font);
+font-size: 4.5rem;  var(--4x-large-em-font);
+font-size: 3rem;    var(--3x-large-em-font);
+
+--xx-small-px-font: 10px;
+--x-small-px-font: 12px;
+--small-px-font: 14px;
+--normal-px-font: 15px;
+--medium-px-font: 16px;
+--medium-px-font: 16px;
+
+font-size: 10px; 1 xxs-
+font-size: 12px; xs-
+font-size: 14px; sm-
+font-size: 15px; med
+font-size: 16px; regular (default)
+font-size: 17px; 1
+font-size: 18px; lg-
+font-size: 19px; 1
+font-size: 20px; xl
+font-size: 22px; xxl
+font-size: 24px; r
+font-size: 26px; 3xl
+font-size: 30px; 1
+font-size: 32px;
+font-size: 38px; 1
+
+font-size: 52px; r
+font-size: 70px; r
+
+
+h1{
+    font-size: 38px;
+}
+
+h2{
+    font-size: 32px;
+}
+
+h3{
+    font-size: 26px;
+}
+
+h4{
+    font-size: 22px;
+}
+
+h5{
+    font-size: 18px;
+}
+
+h6{
+    font-size: 14px;
+}
+
+
+header
+search
+list-box
+bookmark
+social
+article
+loop / swiper
+editor
+read-later
+share-on
+related-post
+contactModal
+kw
+homepage
+tags
+subscribe
+footer
+signin
+checkout
+signup
+account
+notification

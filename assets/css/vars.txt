@@ -1,0 +1,135 @@
+<style>
+:root {
+
+    /** COLORS **/
+
+    --accent-color: #e83030;
+    --secondary-accent-color: #5fccc4;
+    --darker-text: #000;
+    --dark-text: #333;
+    --light-text: #CCC;
+    --lighter-text: #FFF;
+    --gray-text: #b7b7b7;
+    --gray-text-2: #b9b2a2;
+
+    /** BACKGROUNDS **/
+
+    --body-background: #EBE9E4;
+    --body-dark-background: #222;
+    --menu-background: rgba(242, 242, 242, .98);
+    --menu-dark-background: rgba(13, 13, 13, .98);
+    --article-background-color: #FFF;
+    --article-dark-background-color: #1A1A1A;
+    --reading-progress-color: var(--accent-color);
+    --lighter-background: #FFF;
+    --darker-background: #000;
+
+    /** FONTS **/
+
+    --primary-font: "roboto-mono", "Roboto Mono", sans-serif;
+    --secondary-font: "ff-basic-gothic-pro", "Roboto", sans-serif;
+    --mono-font: monospace;
+
+    /** FONT WEIGHTS **/
+
+    --thin-font: 200;
+    --light-font: 300;
+    --regular-font: 400;
+    --semi-bold-font: 500;
+    --bold-font: 600;
+    --extra-bold-font: 700;
+
+    /** FONT SIZES **/
+    --large-em-font: 1.25rem;
+    --x-large-em-font: 1.8rem;
+    --xx-large-em-font: 2.6rem;
+    --x3-large-em-font: 3rem;
+    --x4-large-em-font: 4.5rem;
+
+    /** SECTION SPECIFIC VARIABLES **/
+
+    /** HOME PAGE **/
+
+    --home-title-font-size: var(--x3-large-em-font);
+    --home-title-font-weight: var(--regular-font);
+
+    --home-subtitle-font-size: 22px;
+    --home-subtitle-font-weight: var(--thin-font);
+
+    /** NAV LINKS **/
+
+    --nav-link-color: #262626;
+    --nav-link-font-size: 15px;
+    --nav-link-font-family: var(--primary-font);
+    --nav-link-letter-spacing: 5px;
+    --nav-link-font-weight: var(--regular-font);
+    --nav-link-text-transform: uppercase;
+    --nav-link-hover-color: var(--accent-color);
+
+    /** POST AUTHOR **/
+
+    --author-name-font-family: var(--primary-font);
+    --author-name-font-size: 12px;
+    --author-name-font-weight: var(--regular-font);
+    --author-name-letter-spacing: 3px;
+    --author-name-color: var(--accent-color);
+    --author-name-transform: uppercase;
+
+    /** POSTS **/
+
+    --post-title-font-family: var(--primary-font);
+    --post-title-font-size: 70px;
+    --post-title-font-weight: var(--light-font);
+    --post-title-color: var(--dark-text);
+    --post-title-hi-color: var(--lighter-text);
+
+    --post-date-font-family: var(--primary-font);
+    --post-date-color: var(--lighter-text);
+    --post-date-font-size: 15px;
+
+    --post-author-font-family: var(--primary-font);
+    --post-author-color: var(--gray-text-2);
+    --post-author-hi-color: var(--lighter-text);
+    --post-author-color-hover: var(--accent-color);
+    --post-author-font-size: 15px;
+    --post-author-transform: uppercase;
+
+    --post-page-num-font-family: var(--primary-font);
+    --post-page-num-font-size: 15px;
+    --post-page-num-color: var(--accent-color);
+    --post-page-num-hi-color: var(--lighter-text);
+
+    /** RELATED POSTS **/
+
+    --related-date-font-family: var(--primary-font);
+    --related-date-font-size: 14px;
+    --related-date-color: var(--gray-text);
+    --related-date-transform: capitalize;
+
+    --related-title-font-family: var(--secondary-font);
+    --related-title-color: var(--accent-color);
+    --related-title-color-hover: var(--dark-text);
+    --related-title-font-size: var(--large-em-font);
+    --related-title-font-weight: var(--bold-font);
+    --related-title-transform: capitalize;
+
+    --related-author-color: var(--gray-text);
+    --related-author-font-size: 14px;
+    --related-author-font-weight: var(--regular-font);
+    --related-author-link-font-weight: var(--semi-bold-font);
+
+    /** FOOTER **/
+
+    --footer-title-color: var(--accent-color);
+    --footer-title-font-size: 20px;
+    --footer-title-transform: uppercase;
+    --footer-title-letter-spacing: 2px;
+
+    --footer-tags-font-weight: var(--regular-font);
+
+    --footer-copyright-font-family: var(--primary-font);
+    --footer-copyright-font-weight: var(--regular-font);
+    --footer-copyright-font-size: 14px;
+
+}
+</style>

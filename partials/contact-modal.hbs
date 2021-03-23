@@ -1,0 +1,30 @@
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">{{t "Contact"}}</h3>
+                <a href="#" data-dismiss="modal" aria-label="Close">
+                    <svg width="23" height="21" viewBox="0 0 23 21" xmlns="http://www.w3.org/2000/svg"><g stroke="#B9B2A2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M21.4473684.55263158L1.17249143 20.8275086M1.5526316.55263158L21.82750857 20.8275086"></path></g></svg>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form class="kwes-form" action="https://kwes.io/api/foreign/forms/GNiJTD1vlxMo3VtdZbNm">
+                    <label for="name">{{t "Your Email" }}</label>
+                    <input autocomplete="off" class="form-control" type="email" name="email" rules="required|max:255">
+                    <label for="name">{{t "Your Name" }}</label>
+                    <input autocomplete="off" class="form-control" type="text" name="name" rules="required|max:255">
+                    <label for="message">{{t "Your Message"}}</label>
+                    <textarea autocomplete="off" class="form-control" type="text" name="message" rules="required"></textarea>
+                    <div class="form-actions row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-block btn-primary">{{t "Submit"}}</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-block btn-outline" data-dismiss="modal">{{t "Cancel"}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

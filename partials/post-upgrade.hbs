@@ -1,0 +1,18 @@
+<div class="col-lg-8 col-sm-10 offset-sm-1 offset-lg-2">
+    <section class="post-full-content">
+        <div class="post-content">
+            <p>{{{excerpt}}}</p>
+        </div>
+        <aside class="post-upgrade-cta">
+            <div class="post-upgrade-cta-content">
+                {{#if @member}}
+                    <h2>{{t "This post is for paying subscribers only"}}</h2>
+                {{else}}
+                    <h2>{{t "This post is for subscribers only"}}</h2>
+                {{/if}}
+                <a class="btn btn-control btn-lg btn-primary" href="/signup/">{{t "Subscribe now"}}</a>
+                <p><small>{{t "Already have an account?"}} <a href="/signin/">{{t "Sign in"}}</a></small></p>
+            </div>
+        </aside>
+    </section>
+</div>

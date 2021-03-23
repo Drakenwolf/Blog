@@ -1,0 +1,71 @@
+{
+    "name": "zvikov",
+    "description": "A theme that will only show one post at a time. If you're a fan of decluttering, know that we've decluttered the sh*t out of this one. Specially for you. But most importantly - it's FREE!",
+    "demo": "https://zvikov.hauntedthemes.com/",
+    "version": "2.0.0",
+    "license": "GNU",
+    "engines": {
+        "ghost": ">=3.0.0",
+        "ghost-api": "v3"
+    },
+    "author": {
+        "name": "Haunted Themes",
+        "email": "contact@hauntedthemes.com",
+        "url": "https://www.hauntedthemes.com"
+    },
+    "scripts": {
+        "dev": "gulp",
+        "zip": "gulp zip",
+        "test": "gscan .",
+        "test:ci": "gscan --fatal --verbose .",
+        "pretest": "gulp build",
+        "preship": "yarn test"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Author"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "devDependencies": {
+        "autoprefixer": "9.8.3",
+        "beeper": "^2.0.0",
+        "cssnano": "4.1.10",
+        "gscan": "3.5.4",
+        "gulp": "^4.0.2",
+        "gulp-livereload": "^4.0.2",
+        "gulp-postcss": "^8.0.0",
+        "gulp-sourcemaps": "2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglifyes": "^0.2.1",
+        "gulp-util": "3.0.8",
+        "gulp-watch": "5.0.1",
+        "gulp-zip": "^5.0.2",
+        "postcss-color-function": "^4.1.0",
+        "postcss-color-mod-function": "3.0.3",
+        "postcss-custom-properties": "^9.1.1",
+        "postcss-easy-import": "3.0.0",
+        "pump": "^3.0.0"
+    },
+    "config": {
+        "posts_per_page": 1,
+        "image_sizes": {
+            "xs": {
+                "width": 80,
+                "height": 80
+            },
+            "m": {
+                "width": 540
+            },
+            "l": {
+                "width": 1140
+            }
+        }
+    },
+    "dependencies": {}
+}
