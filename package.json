@@ -5,9 +5,9 @@
     "version": "2.0.0",
     "license": "GNU",
     "engines": {
-        "ghost": ">=3.0.0",
-        "ghost-api": "v3"
-    },
+        "ghost": ">=4.0.0",
+        "ghost-api": "v4"
+      },
     "author": {
         "name": "Haunted Themes",
         "email": "contact@hauntedthemes.com",
