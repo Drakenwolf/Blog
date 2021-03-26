@@ -38,7 +38,7 @@ function languageChecker() {
 
 	$("#language-symbol").on("click", function (e) {
 		if (symbol.textContent == 'en'){
-			window.location = `${siteUrl}/prologue`;
+			window.location = `${siteUrl}/${config["fallback-url"] || "preambule"}`;
 		}
 		else {
 			window.location = `${siteUrl}/en`;
@@ -71,18 +71,28 @@ function initLanguageSwitcher() {
 	return setInitLanguage(
 		window.location.href.startsWith(`${siteUrl}/en/`) ? 'en' : 'fr');
 }
-
+console.log('flag')
 function initColorSwitcher() {
 
 	var colors = ["dark", "light"];
 	var saved_color = localStorage.getItem("zvikov-color");
 
+	if(saved_color === "dark"){
+		$( "#reading-icon" ).addClass( 'reading-icon');
+	} else{
+		$( "#reading-icon" ).removeClass( 'reading-icon');
+	}
+
 	if(colors.includes(saved_color)) {
 		$("body").addClass(saved_color);
-		$("#color-switcher").attr("data-color", (saved_color) === "light" ? "dark" : "light");
+		$("#color-switcher").attr("data-color",(saved_color) === "light" ? "dark" : "light ");
+	
+		console.log(saved_color);
+		
 	} else {
 		$("body").addClass("light");
 		$("#color-switcher").attr("data-color", "dark");
+		
 	}
 
 	$("#color-switcher").on("click", function (e) {
@@ -92,25 +102,24 @@ function initColorSwitcher() {
 
 		$("body").addClass(setColor);
 		$("body").removeClass(otherColor);
-
 		$("#color-switcher").attr("data-color", otherColor);
 		localStorage.setItem("zvikov-color", setColor);
 
 	});
 
-}
 
-// function initLightbox() {
-//
-// 	$(".kg-gallery-image:not(.with-carousel) > img, .kg-gallery-image:not(.with-carousel) span > img").wrap(`<a data-gallery='collection-gallery' data-toggle='lightbox' class='lb-item'></a>`);
-//
-// 	$(".kg-gallery-image").addClass("with-carousel");
-//
-// 	$(".kg-gallery-image .lb-item").each(function(e, t) {
-// 		$(this).attr("href", $(this).children("img").attr("src"))
-// 	});
-//
-// }
+}
+console.log('flag')
+function initLightbox() {
+	var images = document.querySelectorAll('.kg-gallery-image img');
+	images.forEach(function (image) {
+		var container = image.closest('.kg-gallery-image');
+		var width = image.attributes.width.value;
+		var height = image.attributes.height.value;
+		var ratio = width / height;
+		container.style.flex = ratio + ' 1 0%';
+	});
+}
 
 // Give the parameter a variable name
 
@@ -129,6 +138,8 @@ $('#donorwall-iframe').on('load', function() {
 	}, 50);
 });
 
+
+
 jQuery(document).ready(function($) {
 
 	$("#contact-trigger").click(function() {
@@ -142,10 +153,6 @@ jQuery(document).ready(function($) {
 	// 	$(this).ekkoLightbox();
 	// });
 
-	var config = {
-		'content-api-host': 'https://bastienrivath.ghost.io',
-		'content-api-key': '18eec1a6fdcf759bc1251c9d81'
-	};
 
 	if (action == 'subscribe') {
 		$('body').addClass("subscribe-success");
@@ -278,7 +285,7 @@ jQuery(document).ready(function($) {
 
     imageInDiv();
     readingTime($('#content .loop .swiper-slide'));
-    // initLightbox();
+    initLightbox();
 
 	if (typeof Cookies.get('zvikov-read-later') !== "undefined") {
 		readLaterPosts = JSON.parse(Cookies.get('zvikov-read-later'));
@@ -303,6 +310,8 @@ jQuery(document).ready(function($) {
 		});
 
 		checkHistoryOnChange = 0;
+		
+
 
 		// On slide change add new post to history
 		swiperPosts.on('slideChangeTransitionEnd', function(event) {
@@ -310,17 +319,15 @@ jQuery(document).ready(function($) {
 
 			if (checkHistoryOnChange != 1) {
 				var value = $('.swiper-slide-active').attr('data-history');
-				console.log(window.location, 'value:', value);
+				//console.log(window.location, 'value:', value);
 				var url = window.location.origin + '/' + value + '/';
 				history.pushState({ value: value }, null, url);
 			};
 
 			checkHistoryOnChange = 0;
 			update();
-			// initLightbox();
-
+			initLightbox();
 			$(".swiper-slide-active .lb-item").attr("data-gallery", $('.swiper-slide-active').attr('data-history'));
-
 		});
 
 		pathname = pathname.replace(/#(.*)$/g, '').replace('/\//g', '/');
@@ -372,17 +379,7 @@ jQuery(document).ready(function($) {
 					// Create pagination number
 					$('.pagination-number').append('<b>'+ (firstPostIndex + 1) +'</b>/' + countAllPosts);
 				}
-				/*
-				$.each(data, function(index, val) {
-					var currentId = $('.swiper-slide-active .article-container').attr('data-id');
-					console.log('firstPostId', firstPostId);
-					console.log('val', val)
-					if (val.comment_id == firstPostId) {
-						firstPostIndex = index + 1;
-						$('.pagination-number').append('<b>'+ firstPostIndex +'</b>/' + countAllPosts);
-					};
-				});
-				*/
+			
 
 				if ($('body').hasClass('post-template')) {
 					$.each(allPosts, function(index, val) {
