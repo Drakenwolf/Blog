@@ -4,6 +4,10 @@
 
 // Parse the URL parameter
 
+
+
+
+
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, "\\$&");
@@ -59,6 +63,9 @@ function initPrint (){
 	WinPrint.print();
 	
 }
+
+
+
 
 function initLanguageSwitcher() {
 
@@ -134,7 +141,6 @@ var language = initLanguageSwitcher();
 var language_symbol = languageChecker();
 
 initColorSwitcher();
-
 $('#donorwall-iframe').on('load', function() {
 	setTimeout(function () {
 		$('.swiper-wrapper').height($('.swiper-slide-active').height());
@@ -545,6 +551,9 @@ jQuery(document).ready(function($) {
 		}, 300);
 
     });
+	// resize dom once height change
+
+
 
     // On back/forward click change slide
 	if (window.history && window.history.pushState) {
