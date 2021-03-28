@@ -167,6 +167,7 @@ td, th{ padding: 0; }
     --lighter-text: #FFF;
     --gray-text: #b7b7b7;
     --gray-text-2: #b9b2a2;
+    
 
     /** BACKGROUNDS **/
 
@@ -1065,7 +1066,7 @@ header h5:before{
 
 
 .reading-icon {
-    fill: white;
+    fill: var(--darker-text);
   }
 
 .article-container .post-content .reading-time{
@@ -1231,7 +1232,7 @@ header h5:before{
 .loop .prev a{
     color: #fff;
     border-radius: 50%;
-    background-color: var(--secondary-accent-color);
+    background-color: var(--darker-background);
     width: 44px;
     height: 44px;
     display: block;
@@ -3755,6 +3756,10 @@ body.dark {
     color: var(--light-text);
 }
 
+body.dark .reading-icon{
+    fill: var(--lighter-text);
+}
+
 .dark .article-container,
 .dark .post-content::before,
 .dark .list-box li {
@@ -3869,4 +3874,23 @@ body.dark {
 
 .dark #contactModal .modal-content {
     background-color: var(--article-dark-background-color);
+}
+
+
+@media print {
+    
+   *{
+     text-decoration: none;
+   }
+
+  
+}
+
+.sk-app-container.sk-mod-showing{
+    background-color: transparent inherit !important;
+}
+
+.speechkit-container{
+    margin: 10px;
+    margin-bottom: 3em;
 }

@@ -2,14 +2,16 @@
     <div class="col-lg-8 col-sm-10 offset-sm-1 offset-lg-2">
         <section class="post-content">
             <div class="reading-container ">
-                <div id="reading-icon">
+                <div>
                     {{> "icons/reading-time"}}
                 </div>
                 <div class="reading-time">
                     {{reading_time}}
                 </div>
             </div>
+          
             <div class="editor-content">{{{content}}}</div>
+            <div><button class=" btn btn-lg btn-primary btn-outline" onClick="initPrint()">Print this page</button></div>
             {{#has tag="#facebook, #twitter, #reddit, #email, #linkedin"}}
                 <div class="share-on">
                     <p>{{t "Share on:"}}</p>

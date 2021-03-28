@@ -47,6 +47,19 @@ function languageChecker() {
 	return symbol;
 }
 
+function initPrint (){
+	var collection = document.getElementsByTagName('p');
+	var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+	var arr = Array.prototype.slice.call( collection )
+	for (item of collection) {
+		WinPrint.document.write(item.innerHTML);
+	}
+	WinPrint.document.close();
+	WinPrint.focus();
+	WinPrint.print();
+	
+}
+
 function initLanguageSwitcher() {
 
 	function setInitLanguage(language) {
@@ -71,28 +84,20 @@ function initLanguageSwitcher() {
 	return setInitLanguage(
 		window.location.href.startsWith(`${siteUrl}/en/`) ? 'en' : 'fr');
 }
-console.log('flag')
+
 function initColorSwitcher() {
 
 	var colors = ["dark", "light"];
 	var saved_color = localStorage.getItem("zvikov-color");
 
-	if(saved_color === "dark"){
-		$( "#reading-icon" ).addClass( 'reading-icon');
-	} else{
-		$( "#reading-icon" ).removeClass( 'reading-icon');
-	}
 
 	if(colors.includes(saved_color)) {
 		$("body").addClass(saved_color);
 		$("#color-switcher").attr("data-color",(saved_color) === "light" ? "dark" : "light ");
-	
-		console.log(saved_color);
-		
 	} else {
+
 		$("body").addClass("light");
 		$("#color-switcher").attr("data-color", "dark");
-		
 	}
 
 	$("#color-switcher").on("click", function (e) {
@@ -106,10 +111,8 @@ function initColorSwitcher() {
 		localStorage.setItem("zvikov-color", setColor);
 
 	});
-
-
 }
-console.log('flag')
+
 function initLightbox() {
 	var images = document.querySelectorAll('.kg-gallery-image img');
 	images.forEach(function (image) {
