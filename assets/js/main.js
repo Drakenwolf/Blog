@@ -1,3 +1,14 @@
+function observeSlide() {
+
+	const resizeObserver = new ResizeObserver(entries => {
+		$(".swiper-wrapper").height(entries[0].target.clientHeight);
+	})
+	
+	resizeObserver.disconnect();
+	resizeObserver.observe(document.querySelector(".swiper-slide-active"));
+
+}
+
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, "\\$&");
@@ -121,7 +132,9 @@ function initColorSwitcher() {
 }
 
 function initLightbox() {
+
 	var images = document.querySelectorAll('.kg-gallery-image img');
+
 	images.forEach(function (image) {
 		var container = image.closest('.kg-gallery-image');
 		var width = image.attributes.width.value;
@@ -129,6 +142,31 @@ function initLightbox() {
 		var ratio = width / height;
 		container.style.flex = ratio + ' 1 0%';
 	});
+
+	// Make all images from gallery ready to be zoomed
+    
+	$('.kg-gallery-image img').each(function(index, el) {
+		$( "<a href='" + $(this).attr('src') + "' class='zoom'></a>" ).insertAfter( $(this) );
+		$(this).appendTo($(this).next("a"));
+	});
+		
+	// Initialize Fluidbox
+		
+	$('.zoom').fluidbox();
+		
+	var expanded = false;
+	$(".fluidbox__wrap").click(function() {
+		if(!expanded) {
+			$(".loop .next a.active").css({ opacity: 0 })
+			$(".loop .prev a.active").css({ opacity: 0 })
+			expanded = true;
+		} else {
+			$( ".loop .next a.active" ).css({ opacity: 1 })
+			$( ".loop .prev a.active" ).css({ opacity: 1 })
+			expanded = false;
+		}
+	});
+
 }
 
 // Give the parameter a variable name
@@ -322,7 +360,10 @@ jQuery(document).ready(function($) {
 			checkHistoryOnChange = 0;
 			update();
 			initLightbox();
+			observeSlide();
+
 			$(".swiper-slide-active .lb-item").attr("data-gallery", $('.swiper-slide-active').attr('data-history'));
+			$('.kg-gallery-card img').fluidbox();
 
 		});
 
@@ -413,6 +454,8 @@ jQuery(document).ready(function($) {
 
 		})
 		.catch((err) => console.error(err));
+
+		observeSlide();
 
 	});
 
