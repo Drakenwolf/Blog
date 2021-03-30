@@ -1,16 +1,19 @@
 <div class="row">
     <div class="col-lg-8 col-sm-10 offset-sm-1 offset-lg-2">
         <section class="post-content">
-            <div class="reading-container ">
-                <div>
+
+            <div class="post-btns invisible">
+                <div class="reading-container">
                     {{> "icons/reading-time"}}
+                    <div class="reading-time">{{reading_time}}</div>
                 </div>
-                <div class="reading-time">
-                    {{reading_time}}
+                <div class="printer-wrapper" onclick="initPrint('{{title}}', '{{#primary_author}}{{name}}{{/primary_author}}', '{{updated_at}}')">
+                    {{> "icons/printer"}}
                 </div>
             </div>
-            <svg  id="print" class="btn-print" onClick="$( document ).ready(initPrint())" class="print-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 23h-24v-12h4v-10h11.328l4.672 5.031v4.969h4v12zm-20-11h-3v10h22v-10h-3v5h-16v-5zm10-10h-9v14h14v-9h-5v-5zm2 12h-8v-1h8v1zm0-2h-8v-1h8v1zm0-2h-8v-1h8v1zm-1-7.751v3.751h3.573l-3.573-3.751z"/></svg>        
+
             <div class="editor-content">{{{content}}}</div>
+
             {{#has tag="#facebook, #twitter, #reddit, #email, #linkedin"}}
                 <div class="share-on">
                     <p>{{t "Share on:"}}</p>
@@ -21,8 +24,11 @@
                     {{#has tag="#email"}}<a href="mailto:?subject={{encode title}}&amp;body={{url absolute="true"}}" title="{{t "Share by Email"}}"><i class="fa fa-envelope" aria-hidden="true"></i></a>{{/has}}
                 </div>
             {{/has}}
+
         </section>
+        
         {{> "related-posts"}}
+
         {{#if tags}}
             <ul class="tags">
                 {{#foreach tags}}
@@ -32,10 +38,12 @@
                 {{/foreach}}
             </ul>
         {{/if}}
+
         {{^is "author"}}
             {{#if authors}}
                 {{#foreach authors}}
                     <section class="author {{#if profile_image}}has-image{{/if}}">
+
                         {{#if profile_image}}
                             <figure class="author-image">
                                 <a class="img" href="{{url}}" title="{{name}}"><img src="{{img_url profile_image size="xs"}}" alt="{{name}}"></a>
@@ -43,9 +51,8 @@
                         {{/if}}
 
                         <div class="author-content">
-                            <h3>
-                                <a href="{{url}}">{{name}}</a>
-                            </h3>
+
+                            <h3><a href="{{url}}">{{name}}</a></h3>
 
                             {{#if bio}}
                                 <p>{{bio}}</p>
@@ -61,6 +68,7 @@
                                 {{#if website}}<span class="author-link"><a href="{{website}}" target="_blank" rel="noopener noreferrer"><i class="fa fa-link" aria-hidden="true"></i> {{website}}</a></span>{{/if}}
                                 {{#if location}}<span class="author-location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{location}}</span>{{/if}}
                             </div>
+
                         </div>
                     </section>
                 {{/foreach}}

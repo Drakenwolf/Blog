@@ -46,27 +46,25 @@ function languageChecker() {
 
 // document.addEventListener('contextmenu', event => event.preventDefault());
 
-function initPrint() {
+function initPrint(title, author, pubDate) {
 
-	var collection = document.getElementsByClassName('swiper-slide-active');
+	var collection = document.querySelector('.swiper-slide-active .post-content .editor-content');
 	var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-
+	
 	WinPrint.document.write(`
 		<link rel="stylesheet" type="text/css" href="${printStyleUrl}"></link>
+		<h1>${title}</h1>
+		<small style="display: block">${author}</small>
+		<date>${new Date(pubDate).toLocaleString()}</date>
+		${collection.innerHTML}
 		<script>
-			$(document).ready(function() {
-				$("body").on("contextmenu", function(e) {
-					return false;
-				});
-			});
+			document.addEventListener('contextmenu', event => event.preventDefault());
+			window.print();
 		</script>
-	`)
-
-	for (item of collection) WinPrint.document.write(item.innerHTML);
-
+	`);
+	
 	WinPrint.document.close();
 	WinPrint.focus();
-	WinPrint.print();
 
 }
 
@@ -378,7 +376,7 @@ jQuery(document).ready(function($) {
 				} else if ($('#homepage').length || $('body').hasClass('subscribe') || $('body').hasClass('home-template')) {
 					$('a.btn.btn-lg.btn-primary').attr('href', allPosts[0].slug);
 					return;
-				} else if($('body').hasClass('subscribe') || $('body').hasClass('page-template') || $('.error-content').length){
+				} else if ($('body').hasClass('subscribe') || $('body').hasClass('page-template') || $('.error-content').length){
 					return;
 				};
 
@@ -391,6 +389,8 @@ jQuery(document).ready(function($) {
 					loadNextPost(maxPages, nextPage, allPosts, swiperPosts);
 					loadPrevPost(maxPages, prevPage, allPosts, swiperPosts);
 				};
+
+				$(".post-btns").removeClass("invisible");
 
 				swiperPosts.on('slideChange', function(event) {
 
@@ -406,6 +406,8 @@ jQuery(document).ready(function($) {
 					if (activeSlide >= (swiperPosts.slides.length - 2)) {
 						loadNextPost( maxPages, nextPage, allPosts, swiperPosts);
 					};
+
+					$(".post-btns").removeClass("invisible");
 
 				});
 

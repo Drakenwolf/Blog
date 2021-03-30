@@ -1,12 +1,23 @@
-* > figure {
-	display: none;
+body {
+    margin: 0;
+	background-color: #FFF;
 }
 
-.speechkit-container {
-	display: none;
+* {
+	user-select: none;
+	pointer-events: none;
 }
 
-.pagination-number {
+.pagination-number,
+.speechkit-container,
+* > figure,
+svg,
+.related-posts,
+.tags,
+.author,
+.has-image,
+.post-date,
+.reading-time {
 	display: none;
 }
 
@@ -34,15 +45,8 @@
 	}
 }
 
-body {
-	background-color: #ced0ce;
-}
-
 .post-content {
-	margin-top: 1.9cm;
-	margin-left: 1.9cm;
-	margin-right: 1.9cm;
-	margin-bottom: 1.9cm;
+	margin: 1.9cm
 }
 
 p {
@@ -54,32 +58,4 @@ p {
 a {
 	text-decoration: none;
 	color: black;
-}
-
-svg {
-	display: none
-}
-
-.related-posts {
-	display: none
-}
-
-.tags {
-	display: none
-}
-
-.author {
-	display: none
-}
-
-.has-image {
-	display: none
-}
-
-.post-date {
-	visibility: hidden;
-}
-
-.reading-time {
-	visibility: hidden;
 }

@@ -1282,40 +1282,39 @@ header h5:before {
 	margin: 55px 0 55px -205px;
 }
 
-.reading-icon {
-	fill: var(--darker-text);
-}
-
-#print {
-	margin-left: -20%;
-	margin-bottom: -10%;
-}
-
-.btn-print {
-	padding: 0px;
-	background: transparent !important;
-	border: none !important;
-}
-
-.article-container .post-content .reading-time {
-	font-size: 15px;
-	font-weight: var(--light-font);
-	line-height: 20px;
-	color: var(--gray-text);
-	font-family: var(--primary-font);
-	top: 54px;
-}
-
-.reading-time {
-	margin: 20px;
-}
-
-.reading-container {
+.post-btns {
 	position: absolute;
+	margin-left: -20%;
+    transition: all 0.35s ease-in-out;
+}
+
+.post-btns.invisible {
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.post-btns .printer-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.post-btns .printer-wrapper:hover {
+	cursor: pointer;
+}
+
+.post-btns .printer-wrapper svg {
+	transition: all 0.35s ease-in-out;
+}
+
+.post-btns .printer-wrapper:hover svg {
+	fill: var(--accent-color);
+}
+
+.post-btns .reading-container {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-left: -20%;
 }
 
 .article-container .post-content .reading-time:empty {
@@ -1332,6 +1331,23 @@ header h5:before {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.reading-icon {
+	fill: var(--darker-text);
+}
+
+.article-container .post-content .reading-time {
+	font-size: 15px;
+	font-weight: var(--light-font);
+	line-height: 20px;
+	color: var(--gray-text);
+	font-family: var(--primary-font);
+	top: 54px;
+}
+
+.reading-time {
+	margin: 20px;
 }
 
 .article-container .post-content img:not(.kg-bookmark-icon) {
