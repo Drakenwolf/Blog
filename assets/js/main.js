@@ -1,7 +1,5 @@
 const resizeObserver = new ResizeObserver(entries => {
-	setTimeout(() => {
-		$(".swiper-wrapper").height(entries[0].target.clientHeight);
-	}, 100)
+	$(".swiper-wrapper").height(entries[0].target.clientHeight);
 })
 
 function observeSlide() {
