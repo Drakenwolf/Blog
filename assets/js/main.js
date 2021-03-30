@@ -1,12 +1,13 @@
-function observeSlide() {
-
-	const resizeObserver = new ResizeObserver(entries => {
+const resizeObserver = new ResizeObserver(entries => {
+	setTimeout(() => {
 		$(".swiper-wrapper").height(entries[0].target.clientHeight);
-	})
-	
-	resizeObserver.disconnect();
-	resizeObserver.observe(document.querySelector(".swiper-slide-active"));
+	}, 100)
+})
 
+function observeSlide() {
+	resizeObserver.disconnect();
+	$(".swiper-wrapper").height($(".swiper-slide-active").height());
+	resizeObserver.observe(document.querySelector(".swiper-slide-active"));
 }
 
 function getParameterByName(name, url) {
@@ -348,8 +349,6 @@ jQuery(document).ready(function($) {
 		checkHistoryOnChange = 0;
 		
 		swiperPosts.on('slideChangeTransitionEnd', function(event) {
-
-			$('.swiper-wrapper').height($('.swiper-slide-active').height());
 
 			if (checkHistoryOnChange != 1) {
 				var value = $('.swiper-slide-active').attr('data-history');
