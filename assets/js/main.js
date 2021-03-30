@@ -69,7 +69,9 @@ function initPrint(title, author, pubDate) {
 		${collection.innerHTML}
 		<script>
 			document.addEventListener('contextmenu', event => event.preventDefault());
-			window.print();
+			window.onload = function() {
+				window.print();
+			}
 		</script>
 	`);
 	
