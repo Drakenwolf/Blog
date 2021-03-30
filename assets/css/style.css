@@ -715,7 +715,7 @@ header,
 }
 
 header .blog-logo {
-	text-align: center;
+	padding-left: 0;
 }
 
 header .blog-logo a {
@@ -1319,6 +1319,23 @@ header h5:before {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+
+	.post-btns {
+		margin: 0 0 20px 0;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.article-container .post-content .reading-time {
+		margin: 0 15px;
+		top: 0;
+	}
+
 }
 
 .article-container .post-content .reading-time:empty {
@@ -3058,7 +3075,7 @@ footer .copyright {
 	.article-container .post-content .reading-time {
 		position: relative;
 		left: 0;
-		top: -25px;
+		top: 0
 	}
 	.article-container .post-content .kg-image-card.kg-width-wide {
 		width: calc(100% + 60px);
