@@ -1,18 +1,7 @@
-/**
- * Main JS file for Zvikov
- */
-
-// Parse the URL parameter
-
-
-
-
-
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, "\\$&");
-	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-		results = regex.exec(url);
+	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
 	if (!results) return null;
 	if (!results[2]) return '';
 	return decodeURIComponent(results[2].replace(/\+/g, " "));
@@ -36,40 +25,47 @@ function buildSocial() {
 
 
 function languageChecker() {
-	var symbol = document.getElementById('language-symbol');
 
+	var symbol = document.getElementById('language-symbol');
 	symbol.textContent = window.location.href.startsWith(`${siteUrl}/en/`) ? 'en' : 'fr';
 
 	$("#language-symbol").on("click", function (e) {
 		if (symbol.textContent == 'en'){
 			window.location = `${siteUrl}/${config["fallback-url"] || "preambule"}`;
-		}
-		else {
-			window.location = `${siteUrl}/en`;
-		}
+		} else window.location = `${siteUrl}/en`;
 	})
+
 	return symbol;
+
 }
 
-//delete right click from website
+// Delete right click from website.
 
 document.addEventListener('contextmenu', event => event.preventDefault());
 
+function initPrint() {
 
-function initPrint (){
 	var collection = document.getElementsByClassName('swiper-slide-active');
 	var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-	WinPrint.document.write('<link  rel="stylesheet" type="text/css" href="/assets/css/print.css?v=c7ff351d48"></link>')
-	for (item of collection) {
-		WinPrint.document.write(item.innerHTML);
-	}
+
+	WinPrint.document.write(`
+		<link rel="stylesheet" type="text/css" href="${printStyleUrl}"></link>
+		<script>
+			$(document).ready(function() {
+				$("body").on("contextmenu", function(e) {
+					return false;
+				});
+			});
+		</script>
+	`)
+
+	for (item of collection) WinPrint.document.write(item.innerHTML);
+
 	WinPrint.document.close();
 	WinPrint.focus();
 	WinPrint.print();
+
 }
-
-
-
 
 function initLanguageSwitcher() {
 
@@ -92,8 +88,8 @@ function initLanguageSwitcher() {
 		window.location = `${siteUrl}/prologue`;
 	});
 
-	return setInitLanguage(
-		window.location.href.startsWith(`${siteUrl}/en/`) ? 'en' : 'fr');
+	return setInitLanguage(window.location.href.startsWith(`${siteUrl}/en/`) ? 'en' : 'fr');
+		
 }
 
 function initColorSwitcher() {
@@ -101,12 +97,10 @@ function initColorSwitcher() {
 	var colors = ["dark", "light"];
 	var saved_color = localStorage.getItem("zvikov-color");
 
-
 	if(colors.includes(saved_color)) {
 		$("body").addClass(saved_color);
 		$("#color-switcher").attr("data-color",(saved_color) === "light" ? "dark" : "light ");
 	} else {
-
 		$("body").addClass("light");
 		$("#color-switcher").attr("data-color", "dark");
 	}
@@ -122,6 +116,7 @@ function initColorSwitcher() {
 		localStorage.setItem("zvikov-color", setColor);
 
 	});
+
 }
 
 function initLightbox() {
@@ -145,13 +140,12 @@ var language = initLanguageSwitcher();
 var language_symbol = languageChecker();
 
 initColorSwitcher();
+
 $('#donorwall-iframe').on('load', function() {
 	setTimeout(function () {
 		$('.swiper-wrapper').height($('.swiper-slide-active').height());
 	}, 50);
 });
-
-
 
 jQuery(document).ready(function($) {
 
@@ -160,12 +154,6 @@ jQuery(document).ready(function($) {
 	})
 
 	buildSocial();
-
-	// $(document).on("click", '[data-toggle="lightbox"]', function(e) {
-	// 	e.preventDefault();
-	// 	$(this).ekkoLightbox();
-	// });
-
 
 	if (action == 'subscribe') {
 		$('body').addClass("subscribe-success");
@@ -179,7 +167,6 @@ jQuery(document).ready(function($) {
 		$('body').addClass("signup-success");
 	}
 
-	// Success === null is here for backwards compatibility, can be removed shortly
 	if (action == 'signin' && (success === null || success === 'true')) {
 		$('body').addClass("signin-success");
 	}
@@ -280,12 +267,10 @@ jQuery(document).ready(function($) {
         currentPageNext = 1,
         currentPagePrev = 1,
         pathname = window.location.pathname,
-        // $result = $('#content .loop .swiper-wrapper'),
         nextPage,
         prevPage,
         countAllPosts,
         filter = "",
-        // firstPostId = $('.article-container .read-later').attr('data-id'),
         firstPostIndex = 0,
         allPosts,
         readLaterPosts = [],
@@ -308,7 +293,6 @@ jQuery(document).ready(function($) {
 
 	$(window).on('load', function(event) {
 
-		// Initialize Posts Swiper slider
 		swiperPosts = new Swiper('#content .loop .swiper-container', {
 			slidesPerView: 1,
 			spaceBetween: 30,
@@ -324,15 +308,12 @@ jQuery(document).ready(function($) {
 
 		checkHistoryOnChange = 0;
 		
-
-
-		// On slide change add new post to history
 		swiperPosts.on('slideChangeTransitionEnd', function(event) {
+
 			$('.swiper-wrapper').height($('.swiper-slide-active').height());
 
 			if (checkHistoryOnChange != 1) {
 				var value = $('.swiper-slide-active').attr('data-history');
-				//console.log(window.location, 'value:', value);
 				var url = window.location.origin + '/' + value + '/';
 				history.pushState({ value: value }, null, url);
 			};
@@ -341,11 +322,11 @@ jQuery(document).ready(function($) {
 			update();
 			initLightbox();
 			$(".swiper-slide-active .lb-item").attr("data-gallery", $('.swiper-slide-active').attr('data-history'));
+
 		});
 
 		pathname = pathname.replace(/#(.*)$/g, '').replace('/\//g', '/');
 
-		// If body has class paged load next/prev posts based on the current page number
 		if ($('body').hasClass('paged')) {
 			currentPageNext = parseInt(pathname.replace(/[^0-9]/gi, ''));
 			currentPagePrev = parseInt(pathname.replace(/[^0-9]/gi, ''));
@@ -355,45 +336,34 @@ jQuery(document).ready(function($) {
 			maxPages = 0;
 		};
 
-		// If body has class tag-template filter by current tag
 		if ($('body').hasClass('tag-template')) {
 			filter = "tag:" + $('.tag-title').attr('data-tag');
 		};
 
-		// If body has class author-template filter by current author
 		if ($('body').hasClass('author-template')) {
 			filter = "author:" + $('.author').attr('data-author');
 		};
 
-		// Always add language filter\
-		console.log(language);
-		if (language == 'en') {
-			filter = (filter.length > 0 ? filter + '+' : '') + 'tag:hash-en';
-		} else {
-			filter = (filter.length > 0 ? filter + '+' : '') + 'tag:-hash-en';
-		}
+		if (language == 'en') filter = (filter.length > 0 ? filter + '+' : '') + 'tag:hash-en';
+		else filter = (filter.length > 0 ? filter + '+' : '') + 'tag:-hash-en';
 
-		// Fetch posts
 		ghostAPI.posts
 			.browse({
 				limit: 'all',
 				filter: filter,
-				// include: 'tags',
 				order: 'published_at ASC'
 			})
 			.then((data) => {
 
 				allPosts = data;
-				countAllPosts = data.meta.pagination.total; // data.length;
+				countAllPosts = data.meta.pagination.total;
 				maxPages = countAllPosts;
 				firstPostIndex = 0;
 
 				if (!$('body').hasClass('post-template')) {
-					// Create pagination number
 					$('.pagination-number').append('<b>'+ (firstPostIndex + 1) +'</b>/' + countAllPosts);
 				}
 			
-
 				if ($('body').hasClass('post-template')) {
 					$.each(allPosts, function(index, val) {
 						if (val.comment_id == $('.loop .swiper-slide:last-child .article-container .read-later').attr('data-id')) {
@@ -409,21 +379,21 @@ jQuery(document).ready(function($) {
 					return;
 				};
 
-				// Load new posts
 				if (firstPostIndex == 1) {
 					for (var i = 0; i <= 1; i++) {
 						loadNextPost(maxPages, nextPage, allPosts, swiperPosts);
 						loadPrevPost(maxPages, prevPage, allPosts, swiperPosts);
 					};
-				}else{
+				} else {
 					loadNextPost(maxPages, nextPage, allPosts, swiperPosts);
 					loadPrevPost(maxPages, prevPage, allPosts, swiperPosts);
 				};
 
-				// On slide change load new posts
 				swiperPosts.on('slideChange', function(event) {
+
 					$('.loop .swiper-slide.first').removeClass('first').addClass('loaded');
 					activeSlide = swiperPosts.activeIndex;
+
 					if (activeSlide == 1) {
 						setTimeout(function() {
 							loadPrevPost(maxPages, prevPage, allPosts, swiperPosts);
@@ -437,13 +407,10 @@ jQuery(document).ready(function($) {
 				});
 
 		})
-		.catch((err) => {
-			console.error(err);
-		});
+		.catch((err) => console.error(err));
 
 	});
 
-	// Make arrows sticky
     if (w < 768){
         $(".next, .prev").stick_in_parent({
 			offset_top: 100,
@@ -452,13 +419,13 @@ jQuery(document).ready(function($) {
 	  	}).on("sticky_kit:unbottom", function(e) {
 	    	$('.next').removeClass('bottom');
 	  	});
-    }else{
+    } else {
         $(".next, .prev").stick_in_parent({
 			offset_top: 225,
 		});
     }
 
-    var ghostSearch = new GhostSearch({
+    new GhostSearch({
         host: config['content-api-host'],
         key: config['content-api-key'],
         input: '#search-field',
@@ -480,7 +447,7 @@ jQuery(document).ready(function($) {
                         if ($.inArray(val.obj.primary_tag.name, tags) === -1) {
                             tags.push(val.obj.primary_tag.name);
                         };
-                    }else{
+                    } else {
                         if ($.inArray('Other', tags) === -1) {
                             tags.push('Other');
                         };
@@ -529,12 +496,12 @@ jQuery(document).ready(function($) {
 		$('#search-field').focus();
 	});
 
-	// Execute on resize
-    $(window).on('resize', function(event) {
+	$(window).on('resize', function(event) {
+
         w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-        if (w < 768){
+        if (w < 768) {
         	$(".next, .prev").trigger("sticky_kit:detach");
             $(".next, .prev").stick_in_parent({
 				offset_top: 100,
@@ -543,7 +510,7 @@ jQuery(document).ready(function($) {
 		  	}).on("sticky_kit:unbottom", function(e) {
 		    	$('.next').removeClass('bottom');
 		  	});
-        }else{
+        } else {
         	$(".next, .prev").trigger("sticky_kit:detach");
             $(".next, .prev").stick_in_parent({
 				offset_top: 225,
@@ -555,11 +522,7 @@ jQuery(document).ready(function($) {
 		}, 300);
 
     });
-	// resize dom once height change
 
-
-
-    // On back/forward click change slide
 	if (window.history && window.history.pushState) {
 		$(window).on('popstate', function() {
 			checkHistoryOnChange = 1;
@@ -572,7 +535,7 @@ jQuery(document).ready(function($) {
 					if (window.history.state.value == '') {
 						check++;
 					};
-				}else{
+				} else {
 					check++;
 				};
 			});
@@ -582,12 +545,10 @@ jQuery(document).ready(function($) {
 		});
 	}
 
-    // Initialize Highlight.js
     $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
 
-	// Wrap image in a span element
     function imageInDiv(){
     	$('.swiper-slide:not(.swiper-slide-active) .article-container .post-content img').each(function(index, el) {
     		var parent = $(this).parent();
@@ -606,43 +567,54 @@ jQuery(document).ready(function($) {
 	};
 
 	function removeValue(arr) {
+
 	    var what, a = arguments, L = a.length, ax;
+
 	    while (L > 1 && arr.length) {
 	        what = a[--L];
 	        while ((ax= arr.indexOf(what)) !== -1) {
 	            arr.splice(ax, 1);
 	        }
 	    }
+
 	    return arr;
+
 	}
 
-	function readLater(content, readLaterPosts){
+	function readLater(content, readLaterPosts) {
 
 		if (typeof Cookies.get('zvikov-read-later') !== "undefined") {
+
 			$.each(readLaterPosts, function(index, val) {
 				$('.read-later[data-id="'+ val +'"]').addClass('active');
 			});
+
 			bookmarks(readLaterPosts);
+
 		}
 
 		$(content).find('.read-later').each(function(index, el) {
 			$(this).on('click', function(event) {
+
 				event.preventDefault();
 				var id = $(this).attr('data-id');
-				if ($(this).hasClass('active')) {
-					removeValue(readLaterPosts, id);
-				}else{
-					readLaterPosts.push(id);
-				};
+
+				if ($(this).hasClass('active')) removeValue(readLaterPosts, id);
+				else readLaterPosts.push(id);
+
 				$('.read-later[data-id="'+ id +'"]').each(function(index, el) {
 					$(this).toggleClass('active');
 				});
+
 				$('header .btns a .counter').addClass('shake');
+
 				setTimeout(function() {
 					$('header .btns a .counter').removeClass('shake');
 				}, 300);
+
 				Cookies.set('zvikov-read-later', readLaterPosts, { expires: 365 });
 				bookmarks(readLaterPosts);
+
 			});
 		});
 
@@ -659,7 +631,7 @@ jQuery(document).ready(function($) {
 			filter = "comment_id:["+filter+"]";
 
             ghostAPI.posts
-                .browse({limit: 'all', filter: filter, include: 'tags'})
+                .browse({ limit: 'all', filter: filter, include: 'tags' })
                 .then((results) => {
 
                     $('.bookmark-container').empty();
@@ -670,7 +642,7 @@ jQuery(document).ready(function($) {
                             if ($.inArray(val.primary_tag.name, tags) === -1) {
                                 tags.push(val.primary_tag.name);
                             };
-                        }else{
+                        } else {
                             if ($.inArray('Other', tags) === -1) {
                                 tags.push('Other');
                             };
@@ -714,7 +686,7 @@ jQuery(document).ready(function($) {
                             var id = $(this).attr('data-id');
                             if ($(this).hasClass('active')) {
                                 removeValue(readLaterPosts, id);
-                            }else{
+                            } else {
                                 readLaterPosts.push(id);
                             };
                             $('.read-later[data-id="'+ id +'"]').each(function(index, el) {
@@ -727,7 +699,7 @@ jQuery(document).ready(function($) {
 
                     if (results) {
                         $('header .counter').removeClass('hidden').text(results.length);
-                    }else{
+                    } else {
                         $('header .counter').addClass('hidden');
                         $('.bookmark-container').append('<p class="no-bookmarks"></p>');
                         $('.no-bookmarks').html(noBookmarksMessage)
@@ -736,7 +708,7 @@ jQuery(document).ready(function($) {
 			.catch((err) => {
 				console.error(err);
 			});
-		}else{
+		} else {
 			$('header .counter').addClass('hidden');
             $('.bookmark-container').append('<p class="no-bookmarks"></p>');
             $('.no-bookmarks').html(noBookmarksMessage)
@@ -790,24 +762,21 @@ jQuery(document).ready(function($) {
 	}
 
 	function loadPrevPost(maxPages, prevPage, allPosts, swiperPosts){
-		if (currentPagePrev < 1) {
-			return;
-		};
+
+		if (currentPagePrev < 1) return;
 		currentPagePrev--;
 
-		if ($('body').hasClass('paged')) {
-			pathname = '/';
-		}else if($('body').hasClass('home-template') || $('body').hasClass('author-template') || $('body').hasClass('tag-template')){
-			if (currentPagePrev == 0) {
-				return;
-			};
+		if ($('body').hasClass('paged')) pathname = '/';
+		else if($('body').hasClass('home-template') || $('body').hasClass('author-template') || $('body').hasClass('tag-template')) {
+			if (currentPagePrev == 0) return;
 		};
+
 		prevPage = pathname + 'page/' + currentPagePrev + '/';
 
-		if ($('body').hasClass('post-template')) {
-			prevPage = '/' + allPosts[currentPagePrev].slug;
-		};
+		if ($('body').hasClass('post-template')) prevPage = '/' + allPosts[currentPagePrev].slug;
+
 		$.get(prevPage, function (content) {
+
 			var postIndex = parseInt(prevPage.replace(/[^0-9]/gi, ''));
 			var content = $(content);
 
@@ -834,15 +803,15 @@ jQuery(document).ready(function($) {
 	}
 
 	function readingTime(content){
+
 		var readingTime = content.find('.reading-time');
+
 		if (readingTime.length) {
-			if (readingTime.text() == '< 1 min read') {
-				readingTime.text('<1m');
-			}else{
-				readingTime.text(parseInt(readingTime.text()) + 'm');
-			};
+			if (readingTime.text() == '< 1 min read') readingTime.text('<1m');
+			else readingTime.text(parseInt(readingTime.text()) + 'm');
 			readingTime.removeClass('d-none');
 		};
+
 	}
 
 });

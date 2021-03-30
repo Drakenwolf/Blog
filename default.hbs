@@ -1,62 +1,38 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
-<head>
-    
-    {{> theme_head}}
+    <head>
+        {{> theme_head}}
+        {{ghost_head}}
+    </head>
+    <body class="{{body_class}} nav-closed">
 
-    {{!-- Ghost outputs important style and meta data with this tag --}}
-    
-    {{ghost_head}}
-    
+        {{> "notifications"}}
+        {{> "contact-modal"}}
+
+        <div class="main-container">
+            {{> theme_header}}
+            {{{body}}}
+            {{> theme_footer}}
+        </div>
         
-   
-</head>
-<body class="{{body_class}} nav-closed">
+        <script type="text/javascript" src="https://unpkg.com/@tryghost/content-api@1.4.4/umd/content-api.min.js"></script>
+        <script type="text/javascript" src="{{asset "built/js/libraries.js"}}"></script>
 
-    
-
-    {{> "notifications"}}
-    {{> "contact-modal"}}
-
-    <div class="main-container">
-
-        {{> theme_header}}
-
-        {{{body}}}
-  
-        {{> theme_footer}}
-
-    </div>
-
-
-
-    {{!-- Ghost Content API --}}
-
-    <script type="text/javascript" src="https://unpkg.com/@tryghost/content-api@1.4.4/umd/content-api.min.js"></script>
-
-    {{!-- 3rd party scripts --}}
-
-    <script type="text/javascript" src="{{asset "js/libraries.js"}}"></script>
-
-    {{!-- The main JavaScript file for Zvikov --}}
-    <script>
-        var siteUrl = "{{@site.url}}";
-    </script>
-
-    {{#if pagination.pages}}
         <script>
-            var maxPages = parseInt('{{pagination.pages}}');
+            var printStyleUrl = `{{asset "built/css/print.css"}}`;
+            var siteUrl = "{{@site.url}}";
         </script>
-    {{/if}}
 
-    {{ghost_foot}}
+        {{#if pagination.pages}}
+            <script>
+                var maxPages = parseInt('{{pagination.pages}}');
+            </script>
+        {{/if}}
 
-    <script src="https://kwes.io/v2/kwes-script.js" defer></script>
-    <script type="text/javascript" src="{{asset "js/main.js"}}"></script>
+        {{ghost_foot}}
 
+        <script src="https://kwes.io/v2/kwes-script.js" defer></script>
+        <script type="text/javascript" src="{{asset "built/js/main.js"}}"></script>
 
-</body>
+    </body>
 </html>
-{{!-- <link class="printStyle" rel="stylesheet" type="text/css" href="{{asset "assets/css/print.css"}}" />     --}}
-
-
