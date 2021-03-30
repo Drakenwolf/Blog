@@ -7,9 +7,13 @@
     {{!-- Ghost outputs important style and meta data with this tag --}}
     
     {{ghost_head}}
-
+    
+        
+   
 </head>
 <body class="{{body_class}} nav-closed">
+
+    
 
     {{> "notifications"}}
     {{> "contact-modal"}}
@@ -19,7 +23,7 @@
         {{> theme_header}}
 
         {{{body}}}
-
+  
         {{> theme_footer}}
 
     </div>
@@ -51,7 +55,8 @@
     <script type="text/javascript" src="{{asset "js/main.js"}}"></script>
 
 
-
-
 </body>
 </html>
+{{!-- <link class="printStyle" rel="stylesheet" type="text/css" href="{{asset "assets/css/print.css"}}" />     --}}
+
+

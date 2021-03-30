@@ -1,2 +1,2 @@
-@media print{img{display:none!important}.post-content p{font-size:larger}}
+*>figure,.pagination-number,.speechkit-container{display:none}.post-title{color:#000;font-size:2rem;font-weight:600;line-height:1.125;text-align:center}.author-name.text-center a{color:#363636;font-size:1rem;font-weight:300;line-height:.5625;text-align:center}@media (max-width:1199px){li,p{font-size:18px;line-height:24px}}body{background-color:#ced0ce}.post-content{margin:1.9cm}p{text-align:justify;text-justify:inter-word;margin-bottom:30px}a{text-decoration:none;color:#000}.author,.has-image,.related-posts,.tags,svg{display:none}.post-date,.reading-time{visibility:hidden}
 /*# sourceMappingURL=print.css.map */

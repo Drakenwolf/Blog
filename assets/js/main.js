@@ -51,17 +51,21 @@ function languageChecker() {
 	return symbol;
 }
 
+//delete right click from website
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+
 function initPrint (){
-	var collection = document.getElementsByTagName('p');
+	var collection = document.getElementsByClassName('swiper-slide-active');
 	var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-	var arr = Array.prototype.slice.call( collection )
+	WinPrint.document.write('<link  rel="stylesheet" type="text/css" href="/assets/css/print.css?v=c7ff351d48"></link>')
 	for (item of collection) {
 		WinPrint.document.write(item.innerHTML);
 	}
 	WinPrint.document.close();
 	WinPrint.focus();
 	WinPrint.print();
-	
 }
 
 

@@ -24,6 +24,44 @@
 /* ==========================================================================
    0. Normalize
    ========================================================================== */
+.kg-gallery-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1040px;
+    padding-top: 15px;
+
+}
+
+.kg-gallery-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.kg-gallery-image img {
+    display: block;
+    margin: 0;
+    height:auto;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+    margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+    margin: 0 0 0 0.75em;
+}
+
+.kg-gallery-card + .kg-image-card.kg-width-wide,
+.kg-gallery-card + .kg-gallery-card,
+.kg-image-card.kg-width-wide + .kg-gallery-card,
+.kg-image-card.kg-width-wide + .kg-image-card.kg-width-wide {
+    margin: -2.25em 0 3em;
+}
+
+.sk-app-container.sk-mod-showing {
+	background-color: transparent !important;
+}
 
 html {
     font-family: sans-serif;
@@ -1091,7 +1129,13 @@ header h5:before{
   }
 #print{
     margin-left: -20%;
-    margin-bottom: -25%;
+    margin-bottom: -10%;
+   
+}
+.btn-print{
+    padding: 0px;
+    background: transparent !important;
+    border: none !important;
 }
 
 .article-container .post-content .reading-time{
@@ -3593,6 +3637,16 @@ footer .copyright{
     }
 }
 
+
+.fluidbox__overlay {
+    background-color: #000;
+    z-index: 10;
+    width: 300vw;
+  }
+  .fluidbox__ghost{
+    z-index: 20;
+  }
+
 /* ==========================================================================
    12. Lightbox
    ==========================================================================
@@ -3920,12 +3974,14 @@ body.dark .print-icon {
    *{
      text-decoration: none;
    }
-
+   *>figure{
+       display: none;
+   }
   
 }
 
 .sk-app-container.sk-mod-showing{
-    background-color: transparent inherit !important;
+    background-color: transparent  !important;
 }
 
 .speechkit-container{
