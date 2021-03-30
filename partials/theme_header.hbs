@@ -1,6 +1,4 @@
-{{! "Reading Progress" Section }}
-
-<div id="reading-progress-wrapper" class="progress" style="color:blue;">
+<div id="reading-progress-wrapper" class="progress">
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="reading-progress"></div>
 </div>
 
@@ -24,18 +22,9 @@
                 </a>
                 <div class="account-menu">
                     <a href="javascript:" class="account-menu-avatar" id="account-menu" type="checkbox" name="menu">
-                        <!-- <svg width="24" height="26" viewBox="0 0 24 26" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"> -->
-
-                          <!-- <path d="M12 1c-6.338 0-12 4.226-12 10.007 0 2.05.739 4.063 2.047 5.625l-1.993 6.368 6.946-3c1.705.439 3.334.641 4.864.641 7.174 0 12.136-4.439 12.136-9.634 0-5.812-5.701-10.007-12-10.007m0 1c6.065 0 11 4.041 11 9.007 0 4.922-4.787 8.634-11.136 8.634-1.881 0-3.401-.299-4.946-.695l-5.258 2.271 1.505-4.808c-1.308-1.564-2.165-3.128-2.165-5.402 0-4.966 4.935-9.007 11-9.007"/> -->
-
-
                           <span id="language-symbol">fr</span>
-                        <!-- </svg> -->
                     </a>
-                    <div class="account-menu-dropdown">
-                        <!-- <li id="language-switcher-en"><a href="javascript:">{{t "English"}}</a></li>
-                        <li id="language-switcher-fr"><a href="javascript:">{{t "French"}}</a></li> -->
-                    </div>
+                    <div class="account-menu-dropdown"></div>
                 </div>
                 <a href="javascript:" id="color-switcher" class="theme">
                     <span class="light-icon">{{> "icons/sun"}}</span>
@@ -66,6 +55,7 @@
     </div>
 
     <!-- Search Modal -->
+
     <div class="modal fade-scale" id="search" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -105,6 +95,7 @@
     </div>
 
     <!-- Bookmark Modal -->
+
     <div class="modal fade-scale" id="bookmark" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -144,6 +135,7 @@
     </div>
 
     <!-- Menu Modal -->
+
     <div class="modal fade-scale" id="menu" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -188,4 +180,5 @@
             </div>
         </div>
     </div>
+
 </header>

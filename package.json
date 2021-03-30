@@ -16,10 +16,7 @@
     "scripts": {
         "dev": "gulp",
         "zip": "gulp zip",
-        "test": "gscan .",
-        "test:ci": "gscan --fatal --verbose .",
-        "pretest": "gulp build",
-        "preship": "yarn test"
+        "test": "gscan ."
     },
     "gpm": {
         "type": "theme",
@@ -66,8 +63,5 @@
                 "width": 1140
             }
         }
-    },
-    "dependencies": {
-        "kwesforms": "^2.0.15"
     }
 }
