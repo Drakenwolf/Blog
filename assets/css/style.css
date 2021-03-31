@@ -3788,6 +3788,7 @@ footer .copyright {
 	background-color: #000;
 	z-index: 10;
 	width: 300vw;
+	left: 1px;
 }
 
 .fluidbox__ghost {
@@ -3989,6 +3990,21 @@ footer .copyright {
 body.dark {
 	background-color: var(--body-dark-background);
 	color: var(--light-text);
+}
+body.dark .sk-button-reset.svelte-10mfvn0 svg {
+	color: white;
+}
+
+body.dark .sk-icon .svelte-isbism {
+	color: white;
+}
+
+body.dark .sk-button-reset .sk-btn-speed-rate .svelte-10mfvn0{
+	color: white;
+}
+
+body.dark .sk-message .svelte-1t0753l{
+	color: white !important;
 }
 
 body.dark .reading-icon,
