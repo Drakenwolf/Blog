@@ -384,6 +384,7 @@ th {
 	--reading-progress-color: var(--accent-color);
 	--lighter-background: #FFF;
 	--darker-background: #000;
+	--overlay-background:rgba(0, 0, 0, 0.8);
 
 	/** FONTS **/
 
@@ -3784,21 +3785,16 @@ footer .copyright {
 	}
 }
 
-.fluidbox__overlay {
-	background-color: #000;
-	z-index: 10;
-	width: 300vw;
-	left: 1px;
-}
-
-.fluidbox__ghost {
-	z-index: 20;
-}
-
-
-/* ==========================================================================
+/* 
+ ==========================================================================
    12. Lightbox
    ==========================================================================
+    */
+
+
+.ekko-lightbox.modal{
+	background-color: var(--overlay-background) !important;
+}
 
 .ekko-lightbox {
     display: -ms-flexbox!important;
@@ -3980,7 +3976,7 @@ footer .copyright {
     z-index: 100000000;
 }
 
-*/
+
 
 
 /* ==========================================================================
@@ -4003,7 +3999,7 @@ body.dark .sk-button-reset .sk-btn-speed-rate .svelte-10mfvn0{
 	color: white;
 }
 
-body.dark .sk-message .svelte-1t0753l{
+body.dark .with-ad-link .svelte-l74bkw span{
 	color: white !important;
 }
 
