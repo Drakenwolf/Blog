@@ -1,11 +1,12 @@
-function observeSlide() {
+const resizeObserver = new ResizeObserver(entries => {
+	$(".swiper-wrapper").height(entries[0].target.clientHeight);
+})
 
-	const resizeObserver = new ResizeObserver(entries => {
-		$(".swiper-wrapper").height(entries[0].target.clientHeight);
-	})
-	
+function observeSlide() {
 	resizeObserver.disconnect();
+	$(".swiper-wrapper").height($(".swiper-slide-active").height());
 	resizeObserver.observe(document.querySelector(".swiper-slide-active"));
+<<<<<<< HEAD
 }
 
 function overlayMove() {
@@ -17,6 +18,8 @@ function overlayMove() {
 	var move = position.left -600; 
 	overlay.style.left =`${move}px` ;
 	
+=======
+>>>>>>> 7e7b2a619905313dc2afbae42b44aee5751c300e
 }
 
 
@@ -81,7 +84,9 @@ function initPrint(title, author, pubDate) {
 		${collection.innerHTML}
 		<script>
 			document.addEventListener('contextmenu', event => event.preventDefault());
-			window.print();
+			window.onload = function() {
+				window.print();
+			}
 		</script>
 	`);
 	
@@ -348,8 +353,6 @@ jQuery(document).ready(function($) {
 		checkHistoryOnChange = 0;
 		
 		swiperPosts.on('slideChangeTransitionEnd', function(event) {
-
-			$('.swiper-wrapper').height($('.swiper-slide-active').height());
 
 			if (checkHistoryOnChange != 1) {
 				var value = $('.swiper-slide-active').attr('data-history');
