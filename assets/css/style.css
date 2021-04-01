@@ -1501,7 +1501,7 @@ header h5:before {
 .loop .next a.swiper-button-disabled,
 .loop .prev a.swiper-button-disabled {
 	pointer-events: none;
-	opacity: 1;
+	display: none;
 }
 
 .loop .next a svg,

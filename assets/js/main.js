@@ -389,11 +389,13 @@ jQuery(document).ready(function($) {
 
 				allPosts = data;
 				countAllPosts = data.meta.pagination.total;
-				maxPages = countAllPosts;
 				firstPostIndex = 0;
+				minPages = firstPostIndex;
+				maxPages = countAllPosts;	
 
 				if (!$('body').hasClass('post-template')) {
 					$('.pagination-number').append('<b>'+ (firstPostIndex + 1) +'</b>/' + countAllPosts);
+
 				}
 			
 				if ($('body').hasClass('post-template')) {
@@ -661,7 +663,6 @@ jQuery(document).ready(function($) {
 	}
 
 	function bookmarks(readLaterPosts){
-
 		$('.bookmark-container').empty();
 		if (readLaterPosts.length) {
 
@@ -755,9 +756,7 @@ jQuery(document).ready(function($) {
 	}
 
 	function loadNextPost(maxPages, nextPage, allPosts, swiperPosts){
-
 		if (currentPageNext == maxPages) return;
-
 		currentPageNext++;
 
 		if ($('body').hasClass('paged')) {
@@ -835,7 +834,6 @@ jQuery(document).ready(function($) {
 			});
 
 			readLaterPosts = readLater($('.loop .swiper-slide:first-child'), readLaterPosts);
-
 		});
 
 	}
