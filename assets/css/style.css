@@ -1,6 +1,9 @@
+
+
 /* ==========================================================================
    Table of Contents
    ========================================================================== */
+
 
 /*
 
@@ -21,11 +24,12 @@
 
 */
 
+
 /* ==========================================================================
    0. Normalize
    ========================================================================== */
 
-* {
+   * {
 	scroll-behavior: smooth;
 }
 
@@ -361,9 +365,7 @@ th {
 }
 
 :root {
-
 	/** COLORS **/
-
 	--accent-color: #e83030;
 	--secondary-accent-color: #5fccc4;
 	--darker-text: #000;
@@ -372,9 +374,7 @@ th {
 	--lighter-text: #FFF;
 	--gray-text: #b7b7b7;
 	--gray-text-2: #b9b2a2;
-
 	/** BACKGROUNDS **/
-
 	--body-background: #EBE9E4;
 	--body-dark-background: #222;
 	--menu-background: rgba(242, 242, 242, .98);
@@ -384,14 +384,11 @@ th {
 	--reading-progress-color: var(--accent-color);
 	--lighter-background: #FFF;
 	--darker-background: #000;
-	--overlay-background:rgba(0, 0, 0, 0.8);
-
+	--overlay-background: rgba(0, 0, 0, 0.8);
 	/** FONTS **/
-
 	--primary-font: "iAWriterDuospace", "roboto-mono", "Roboto Mono", sans-serif;
 	--secondary-font: "iAWriterQuattro", "Roboto", sans-serif;
 	--mono-font: "iAWriterMono", monospace;
-
 	/** FONT WEIGHTS **/
 	--thin-font: 200;
 	--light-font: 300;
@@ -399,25 +396,19 @@ th {
 	--semi-bold-font: 500;
 	--bold-font: 600;
 	--extra-bold-font: 700;
-
 	/** FONT SIZES **/
 	--large-em-font: 1.25rem;
 	--x-large-em-font: 1.8rem;
 	--xx-large-em-font: 2.6rem;
 	--x3-large-em-font: 3rem;
 	--x4-large-em-font: 4.5rem;
-
 	/** SECTION SPECIFIC VARIABLES **/
-
 	/** HOME PAGE **/
-
 	--home-title-font-size: var(--x3-large-em-font);
 	--home-title-font-weight: var(--regular-font);
 	--home-subtitle-font-size: 22px;
 	--home-subtitle-font-weight: var(--thin-font);
-
 	/** NAV LINKS **/
-
 	--nav-link-color: #262626;
 	--nav-link-font-size: 15px;
 	--nav-link-font-family: var(--primary-font);
@@ -425,18 +416,14 @@ th {
 	--nav-link-font-weight: var(--regular-font);
 	--nav-link-text-transform: uppercase;
 	--nav-link-hover-color: var(--accent-color);
-
 	/** POST AUTHOR **/
-
 	--author-name-font-family: var(--primary-font);
 	--author-name-font-size: 12px;
 	--author-name-font-weight: var(--regular-font);
 	--author-name-letter-spacing: 3px;
 	--author-name-color: var(--accent-color);
 	--author-name-transform: uppercase;
-
 	/** POSTS **/
-
 	--post-title-font-family: var(--primary-font);
 	--post-title-font-size: 70px;
 	--post-title-font-weight: var(--light-font);
@@ -455,9 +442,7 @@ th {
 	--post-page-num-font-size: 15px;
 	--post-page-num-color: var(--accent-color);
 	--post-page-num-hi-color: var(--lighter-text);
-
 	/** RELATED POSTS **/
-
 	--related-date-font-family: var(--primary-font);
 	--related-date-font-size: 14px;
 	--related-date-color: var(--gray-text);
@@ -472,9 +457,7 @@ th {
 	--related-author-font-size: 14px;
 	--related-author-font-weight: var(--regular-font);
 	--related-author-link-font-weight: var(--semi-bold-font);
-
 	/** FOOTER **/
-
 	--footer-title-color: var(--accent-color);
 	--footer-title-font-size: 20px;
 	--footer-title-transform: uppercase;
@@ -483,7 +466,6 @@ th {
 	--footer-copyright-font-family: var(--primary-font);
 	--footer-copyright-font-weight: var(--regular-font);
 	--footer-copyright-font-size: 14px;
-
 }
 
 ::selection {
@@ -664,6 +646,7 @@ figure {
 	text-transform: uppercase;
 	font-family: var(--primary-font);
 	font-size: 16px;
+	white-space: initial;
 }
 
 .btn:hover {
@@ -742,6 +725,23 @@ header .blog-logo a img {
 	padding: 30px 0;
 }
 
+@media screen and (max-width: 768px) {
+	header .blog-logo {
+		padding-left: 25px;
+	}
+	header .btns a svg {
+		width: 20px;
+		height: 20px;
+	}
+	#main-header a span {
+		font-size: 20px;
+		lin-height: 40px;
+	}
+	header .btns a {
+		margin: 0 10px;
+	}
+}
+
 header .modal .blog-logo {
 	color: var(--gray-text);
 }
@@ -754,7 +754,7 @@ header .btns {
 	padding-right: 0;
 }
 
-#main-header a span{
+#main-header a span {
 	color: var(--nav-link-color);
 }
 
@@ -1294,13 +1294,13 @@ header h5:before {
 .post-btns {
 	position: absolute;
 	margin-left: -20%;
-    transition: all 0.35s ease-in-out;
+	transition: all 0.35s ease-in-out;
 }
 
 .post-btns.invisible {
-    opacity: 0;
-    user-select: none;
-    pointer-events: none;
+	opacity: 0;
+	user-select: none;
+	pointer-events: none;
 }
 
 .post-btns .printer-wrapper {
@@ -1327,7 +1327,6 @@ header h5:before {
 }
 
 @media screen and (max-width: 991px) {
-
 	.post-btns {
 		margin: 0 0 20px 0;
 		position: relative;
@@ -1335,12 +1334,10 @@ header h5:before {
 		align-items: center;
 		justify-content: space-between;
 	}
-
 	.article-container .post-content .reading-time {
 		margin: 0 15px;
 		top: 0;
 	}
-
 }
 
 .article-container .post-content .reading-time:empty {
@@ -1943,6 +1940,12 @@ article .kg-bookmark-thumbnail {
 	margin: 0;
 }
 
+@media screen and (max-width: 768px) {
+	.post-upgrade-cta-content h2 {
+		font-size: 28px;
+	}
+}
+
 .related-posts h1 {
 	text-align: center;
 }
@@ -2441,10 +2444,10 @@ footer .copyright {
    8. Sign Up / Sign In
    ========================================================================== */
 
-.btn .btn-control .btn-lg .btn-primary{
+.btn .btn-control .btn-lg .btn-primary {
 	display: block;
-    white-space: normal;
-   }
+	white-space: normal;
+}
 
 .signin-form,
 .signup-form,
@@ -3103,7 +3106,7 @@ footer .copyright {
 	}
 }
 
-div#blog-logo{
+div#blog-logo {
 	display: flex;
 	justify-content: center;
 }
@@ -3146,7 +3149,6 @@ div#blog-logo{
 	h6 {
 		font-size: 12px;
 	}
-
 	header .blog-logo a img {
 		max-width: 100%;
 	}
@@ -3800,198 +3802,196 @@ div#blog-logo{
 	}
 }
 
+
 /* 
  ==========================================================================
    12. Lightbox
    ==========================================================================
     */
 
-
-.ekko-lightbox.modal{
+.ekko-lightbox.modal {
 	background-color: var(--overlay-background) !important;
 }
 
 .ekko-lightbox {
-    display: -ms-flexbox!important;
-    display: flex!important;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding-right: 0!important
+	display: -ms-flexbox!important;
+	display: flex!important;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding-right: 0!important
 }
 
 .ekko-lightbox-container {
-    position: relative
+	position: relative
 }
 
 .ekko-lightbox-container>div.ekko-lightbox-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%
 }
 
 .ekko-lightbox iframe {
-    width: 100%;
-    height: 100%
+	width: 100%;
+	height: 100%
 }
 
 .ekko-lightbox-nav-overlay {
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: -ms-flexbox;
-    display: flex
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: -ms-flexbox;
+	display: flex
 }
 
 .ekko-lightbox-nav-overlay a {
-    -ms-flex: 1;
-    flex: 1;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity .5s;
-    color: #fff;
-    font-size: 30px;
-    z-index: 1
+	-ms-flex: 1;
+	flex: 1;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity .5s;
+	color: #fff;
+	font-size: 30px;
+	z-index: 1
 }
 
 .ekko-lightbox-nav-overlay a>* {
-    -ms-flex-positive: 1;
-    flex-grow: 1
+	-ms-flex-positive: 1;
+	flex-grow: 1
 }
 
 .ekko-lightbox-nav-overlay a>:focus {
-    outline: none
+	outline: none
 }
 
 .ekko-lightbox-nav-overlay a span {
-    padding: 0 30px
+	padding: 0 30px
 }
 
 .ekko-lightbox-nav-overlay a:last-child span {
-    text-align: right
+	text-align: right
 }
 
 .ekko-lightbox-nav-overlay a:hover {
-    text-decoration: none
+	text-decoration: none
 }
 
 .ekko-lightbox-nav-overlay a:focus {
-    outline: none
+	outline: none
 }
 
 .ekko-lightbox-nav-overlay a.disabled {
-    cursor: default;
-    visibility: hidden
+	cursor: default;
+	visibility: hidden
 }
 
 .ekko-lightbox a:hover {
-    opacity: 1;
-    text-decoration: none
+	opacity: 1;
+	text-decoration: none
 }
 
 .ekko-lightbox .modal-dialog {
-    display: none
+	display: none
 }
 
 .ekko-lightbox .modal-footer {
-    text-align: left
+	text-align: left
 }
 
 .ekko-lightbox-loader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
-    align-items: center
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-align: center;
+	align-items: center
 }
 
-.ekko-lightbox-loader > div {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    text-align: center
+.ekko-lightbox-loader>div {
+	width: 40px;
+	height: 40px;
+	position: relative;
+	text-align: center
 }
 
-.ekko-lightbox-loader > div > div {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #fff;
-    opacity: .6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: a 2s infinite ease-in-out
+.ekko-lightbox-loader>div>div {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #fff;
+	opacity: .6;
+	position: absolute;
+	top: 0;
+	left: 0;
+	animation: a 2s infinite ease-in-out
 }
 
-.ekko-lightbox-loader > div > div:last-child {
-    animation-delay: -1s
+.ekko-lightbox-loader>div>div:last-child {
+	animation-delay: -1s
 }
 
-.modal-dialog .ekko-lightbox-loader > div > div {
-    background-color: #333
+.modal-dialog .ekko-lightbox-loader>div>div {
+	background-color: #333
 }
 
 @keyframes a {
-    0%,
-    to {
-        transform: scale(0);
-        -webkit-transform: scale(0)
-    }
-    50% {
-        transform: scale(1);
-        -webkit-transform: scale(1)
-    }
+	0%,
+	to {
+		transform: scale(0);
+		-webkit-transform: scale(0)
+	}
+	50% {
+		transform: scale(1);
+		-webkit-transform: scale(1)
+	}
 }
 
 .ekko-lightbox .modal-content {
-    background: 0 0;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border: 0;
-    padding: 0;
-    margin: 0;
+	background: 0 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .ekko-lightbox .modal-dialog,
 .ekko-lightbox .modal-dialog .modal-content {
-    min-height: 0 !important;
-    background-color: transparent !important;
+	min-height: 0 !important;
+	background-color: transparent !important;
 }
 
 .modal-backdrop.show {
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 .modal-backdrop {
-    z-index: 10000000;
+	z-index: 10000000;
 }
 
 .modal {
-    z-index: 100000000;
+	z-index: 100000000;
 }
-
-
 
 
 /* ==========================================================================
@@ -4002,6 +4002,7 @@ body.dark {
 	background-color: var(--body-dark-background);
 	color: var(--light-text);
 }
+
 body.dark .sk-button-reset.svelte-10mfvn0 svg {
 	color: white;
 }
@@ -4010,11 +4011,11 @@ body.dark .sk-icon .svelte-isbism {
 	color: white;
 }
 
-body.dark .sk-button-reset .sk-btn-speed-rate .svelte-10mfvn0{
+body.dark .sk-button-reset .sk-btn-speed-rate .svelte-10mfvn0 {
 	color: white;
 }
 
-body.dark .with-ad-link .svelte-l74bkw span{
+body.dark .with-ad-link .svelte-l74bkw span {
 	color: white !important;
 }
 
@@ -4057,7 +4058,7 @@ body.dark .print-icon {
 .dark code,
 .dark #contactModal .form-control,
 .dark .kg-code-card pre {
-    border-color: hsla(0,0%,100%,.05);
+	border-color: hsla(0, 0%, 100%, .05);
 }
 
 .dark .loop .swiper-slide.loaded:not(.swiper-slide-active) .read-later::before {
@@ -4107,7 +4108,7 @@ body.dark .print-icon {
 .dark .signin-box input,
 .dark code,
 .dark .kg-code-card pre,
-.dark .kg-code-card pre > *,
+.dark .kg-code-card pre>*,
 .dark article .kg-bookmark-content {
 	background: var(--darker-background);
 }
