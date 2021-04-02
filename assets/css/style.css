@@ -754,6 +754,10 @@ header .btns {
 	padding-right: 0;
 }
 
+#main-header a span{
+	color: var(--nav-link-color);
+}
+
 header .btns a {
 	color: var(--gray-text-2);
 	margin: 0 20px;
@@ -2436,6 +2440,11 @@ footer .copyright {
 /* ==========================================================================
    8. Sign Up / Sign In
    ========================================================================== */
+
+   .btn .btn-control .btn-lg .btn-primary{
+	display: block;
+    white-space: normal;
+   }
 
 .signin-form,
 .signup-form,
