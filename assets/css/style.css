@@ -653,8 +653,6 @@ figure {
 }
 
 .btn {
-	display: block;
-    white-space: normal;
 	border-radius: 3px;
 	background: var(--accent-color);
 	color: #fff;
@@ -3105,6 +3103,11 @@ footer .copyright {
 	}
 }
 
+div#blog-logo{
+	display: flex;
+	justify-content: center;
+}
+
 @media (max-width: 767px) {
 	blockquote:before {
 		width: 30px;
@@ -3143,6 +3146,7 @@ footer .copyright {
 	h6 {
 		font-size: 12px;
 	}
+
 	header .blog-logo a img {
 		max-width: 100%;
 	}
