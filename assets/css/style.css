@@ -653,6 +653,8 @@ figure {
 }
 
 .btn {
+	display: block;
+    white-space: normal;
 	border-radius: 3px;
 	background: var(--accent-color);
 	color: #fff;
@@ -2441,7 +2443,7 @@ footer .copyright {
    8. Sign Up / Sign In
    ========================================================================== */
 
-   .btn .btn-control .btn-lg .btn-primary{
+.btn .btn-control .btn-lg .btn-primary{
 	display: block;
     white-space: normal;
    }
