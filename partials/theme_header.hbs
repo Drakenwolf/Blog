@@ -5,12 +5,12 @@
 <header id="main-header">
     <div class="container">
         <div class="row">
-            <div class="col-6 blog-logo">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 blog-logo">
                 <a href="{{@site.url}}" title="{{@site.title}}">
                     {{#if @site.logo}} <img src="{{@site.logo}}" alt="{{@site.title}}" /> {{else}}<span>{{@site.title}}</span>{{/if}}
                 </a>
             </div>
-            <div class="col-6 text-right btns">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-right btns">
                 <a href="#" class="search" data-toggle="modal" data-target="#search">
                     <svg width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M1.29775 9.197c0-4.52 3.677-8.197 8.196-8.197 4.52 0 8.198 3.677 8.198 8.197s-3.678 8.197-8.198 8.197c-4.519 0-8.196-3.677-8.196-8.197zm15.033 6.13c1.462-1.629 2.361-3.774 2.361-6.13 0-5.071-4.126-9.197-9.198-9.197-5.071 0-9.196 4.126-9.196 9.197 0 5.071 4.125 9.197 9.196 9.197 2.356 0 4.501-.898 6.13-2.36l8.523 8.522c.097.098.225.146.353.146.128 0 .256-.048.354-.146.195-.195.195-.512 0-.707l-8.523-8.522z" fill="#B9B2A2" fill-rule="evenodd"/></svg>
                 </a>
@@ -59,19 +59,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-6 ml-auto">
-                                <div class="blog-logo">
-                                    <a href="{{@site.url}}" title="{{@site.title}}">
-                                        {{#if @site.logo}} <img src="{{@site.logo}}" alt="{{@site.title}}" /> {{else}}<span>{{@site.title}}</span>{{/if}}
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 text-right btns">
-                                <a href="#" data-dismiss="modal" aria-label="Close">
-                                    <svg width="23" height="21" viewBox="0 0 23 21" xmlns="http://www.w3.org/2000/svg"><g stroke="#B9B2A2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M21.4473684.55263158L1.17249143 20.8275086M1.5526316.55263158L21.82750857 20.8275086"/></g></svg>
+                        <div class="modal-header-content">
+                            <div class="blog-logo">
+                                <a href="{{@site.url}}" title="{{@site.title}}">
+                                    {{#if @site.logo}} <img src="{{@site.logo}}" alt="{{@site.title}}" /> {{else}}<span>{{@site.title}}</span>{{/if}}
                                 </a>
                             </div>
+                            <a href="#" data-dismiss="modal" aria-label="Close">
+                                <svg width="23" height="21" viewBox="0 0 23 21" xmlns="http://www.w3.org/2000/svg"><g stroke="#B9B2A2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M21.4473684.55263158L1.17249143 20.8275086M1.5526316.55263158L21.82750857 20.8275086"/></g></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -99,19 +95,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-6 ml-auto">
-                                <div class="blog-logo">
-                                    <a href="{{@site.url}}" title="{{@site.title}}">
-                                        {{#if @site.logo}} <img src="{{@site.logo}}" alt="{{@site.title}}" /> {{else}}<span>{{@site.title}}</span>{{/if}}
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 text-right btns">
-                                <a href="#" data-dismiss="modal" aria-label="Close">
-                                    <svg width="23" height="21" viewBox="0 0 23 21" xmlns="http://www.w3.org/2000/svg"><g stroke="#B9B2A2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M21.4473684.55263158L1.17249143 20.8275086M1.5526316.55263158L21.82750857 20.8275086"/></g></svg>
+                        <div class="modal-header-content">
+                            <div class="blog-logo">
+                                <a href="{{@site.url}}" title="{{@site.title}}">
+                                    {{#if @site.logo}} <img src="{{@site.logo}}" alt="{{@site.title}}" /> {{else}}<span>{{@site.title}}</span>{{/if}}
                                 </a>
                             </div>
+                            <a href="#" data-dismiss="modal" aria-label="Close">
+                                <svg width="23" height="21" viewBox="0 0 23 21" xmlns="http://www.w3.org/2000/svg"><g stroke="#B9B2A2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M21.4473684.55263158L1.17249143 20.8275086M1.5526316.55263158L21.82750857 20.8275086"/></g></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -139,19 +131,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-6 ml-auto">
-                                <div id="blog-logo" class="blog-logo">
-                                    <a href="{{@site.url}}" title="{{@site.title}}">
-                                        {{#if @site.logo}} <img src="{{@site.logo}}" alt="{{@site.title}}" /> {{else}}<span>{{@site.title}}</span>{{/if}}
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6 text-right btns">
-                                <a href="#" data-dismiss="modal" aria-label="Close">
-                                    <svg width="23" height="21" viewBox="0 0 23 21" xmlns="http://www.w3.org/2000/svg"><g stroke="#B9B2A2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M21.4473684.55263158L1.17249143 20.8275086M1.5526316.55263158L21.82750857 20.8275086"/></g></svg>
+                        <div class="modal-header-content">
+                            <div class="blog-logo">
+                                <a href="{{@site.url}}" title="{{@site.title}}">
+                                    {{#if @site.logo}} <img src="{{@site.logo}}" alt="{{@site.title}}" /> {{else}}<span>{{@site.title}}</span>{{/if}}
                                 </a>
                             </div>
+                            <a href="#" data-dismiss="modal" aria-label="Close">
+                                <svg width="23" height="21" viewBox="0 0 23 21" xmlns="http://www.w3.org/2000/svg"><g stroke="#B9B2A2" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M21.4473684.55263158L1.17249143 20.8275086M1.5526316.55263158L21.82750857 20.8275086"/></g></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
