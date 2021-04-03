@@ -54,7 +54,7 @@ function languageChecker() {
 
 // Delete right click from website.
 
-// document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 function initPrint(title, author, pubDate) {
 
